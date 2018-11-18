@@ -14,6 +14,7 @@ class Todos extends Component {
       todos: [],
       inputValue:'hello '
     }
+    onkeyup = this.onkeyup.bind(this);
   }
 
   // when the user is writing to the input text, upate the inputValue key in the state
@@ -22,7 +23,7 @@ class Todos extends Component {
       inputValue: event.target.value
     })
   }
-  
+
   onkeyup (event){
     let todos = this.state.todos;
     if (event.key === 'Enter') {
@@ -41,7 +42,7 @@ class Todos extends Component {
   render(){
     return (
       <div className="container">
-        <input type="text" value={this.state.inputValue} onKeyUp={this.onkeyup.bind(this)}  
+        <input type="text" value={this.state.inputValue} onKeyUp={this.onkeyup.bind(this)}
         onChange={this.oninputchange.bind(this)}/>
         {
           this.state.todos.map((item, i)=>{
@@ -63,4 +64,3 @@ function App() {
 
 // Display content
 ReactDOM.render(<App/>, document.getElementById('root'))
-
